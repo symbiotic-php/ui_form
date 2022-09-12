@@ -2,6 +2,7 @@
 /**
  * @var  \Symbiotic\Form\Fields\Input $field
  */
+
 // todo : define id, classes,
 $field_id = $field->getAttributes()['id'] ?? md5(uniqid());
 $type = $field->getAttributes()['type'] ?? 'text';
@@ -18,13 +19,14 @@ $error = $field->getError();
     <div class="col-sm-12 col-md">
         <input type="hidden"
                @if(!empty($name))
-               name="{{$field->getName()}}"
+                   name="{{$field->getName()}}"
                @endif
                {!! $field->getAttributesHtml() !!} value="0">
-        <input type="checkbox" id="{{$field_id}}" @if(!empty($name))
-        name="{{$field->getName()}}"
+        <input type="checkbox" id="{{$field_id}}"
+               @if(!empty($name))
+                   name="{{$field->getName()}}"
                @endif
-               value="1" @if((null !== $value && !empty($value)) || !empty($default)) checked @endif
+               value="1" @if(!empty($value) || !empty($default)) checked @endif
         >
         @if(!empty($error))
             <div class=" small error-message">{{$error}}</div>

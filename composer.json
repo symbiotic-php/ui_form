@@ -1,19 +1,17 @@
 {
   "name": "symbiotic/ui_form",
-  "description": "Templates for symbiotic/form package.",
+  "description": "Templates for `symbiotic/form` package.",
   "authors": [
     {
       "name": "Surkov Sergey",
-      "role": "creator"
+      "role": "Developer"
     }
   ],
-
-  "version": "1.0.1",
+  "version": "1.4.0",
   "license": "MIT",
   "require": {
-    "php": ">=7.2"
+    "php": ">=8.0"
   },
-
   "extra": {
     "symbiotic": {
       "id": "ui_form",
