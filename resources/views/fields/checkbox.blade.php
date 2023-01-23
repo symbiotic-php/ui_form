@@ -7,6 +7,7 @@
 $field_id = $field->getAttributes()['id'] ?? md5(uniqid());
 $type = $field->getAttributes()['type'] ?? 'text';
 $name = $field->getName();
+$description = $field->getDescription();
 $value = $field->getValue();
 $variants = $field->getVariants();
 $default = $field->getDefault();
@@ -28,6 +29,10 @@ $error = $field->getError();
                 <br>
             @endforeach
         </div>
+        @if(!empty($description))
+            <br>
+            <small>{{$description}}</small>
+        @endif
         @if(!empty($error))
             <div class=" small error-message">{{$error}}</div>
         @endif

@@ -7,6 +7,7 @@ $attributes = $field->getAttributes();
 $field_id = $attributes['id'] ?? md5(uniqid());
 $type = $attributes['type'] ?? 'text';
 $name = $field->getName();
+$description = $field->getDescription();
 $value = $field->getValue();
 $default = $field->getDefault();
 $error = $field->getError();
@@ -19,6 +20,10 @@ $error = $field->getError();
     </div>
     <div class="col-sm-12 col-md">
         <textarea name="{{$name}}" id="{{$field_id}}" {!! $field->getAttributesHtml() !!} placeholder="{{$field->getPlaceholder()}}">{{($value===null?($default?:''):$value)}}</textarea>
+        @if(!empty($description))
+            <br>
+            <small>{{$description}}</small>
+        @endif
         @if(!empty($error))
             <div class=" small error-message">{{$error}}</div>
         @endif

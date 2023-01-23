@@ -7,6 +7,7 @@
 $field_id = $field->getAttributes()['id'] ?? md5(uniqid());
 $type = $field->getAttributes()['type'] ?? 'text';
 $name = $field->getName();
+$description = $field->getDescription();
 $value = $field->getValue();
 $default = $field->getDefault();
 $error = $field->getError();
@@ -28,6 +29,10 @@ $error = $field->getError();
                @endif
                value="1" @if(!empty($value) || !empty($default)) checked @endif
         >
+        @if(!empty($description))
+            <br>
+            <small>{{$description}}</small>
+        @endif
         @if(!empty($error))
             <div class=" small error-message">{{$error}}</div>
         @endif

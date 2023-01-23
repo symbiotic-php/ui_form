@@ -3,6 +3,7 @@
  * @var  \Symbiotic\Form\Fields\Select $field
  */
 $field_id = $field->getAttributes()['id'] ?? md5(uniqid());
+$description = $field->getDescription();
 ?>
 
 <div class="row responsive-label @if(!empty($error)) error @endif">
@@ -23,6 +24,10 @@ $field_id = $field->getAttributes()['id'] ?? md5(uniqid());
                 </option>
             @endforeach
         </select>
+        @if(!empty($description))
+            <br>
+            <small>{{$description}}</small>
+        @endif
         @if(!empty($error))
             <div class=" small error-message">{{$error}}</div>
         @endif
