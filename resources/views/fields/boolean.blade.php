@@ -27,7 +27,7 @@ $error = $field->getError();
                @if(!empty($name))
                    name="{{$field->getName()}}"
                @endif
-               value="1" @if(!empty($value) || !empty($default)) checked @endif
+               value="1" @if(!empty($value) || ( is_null($value) && !empty($default))) checked @endif
         >
         @if(!empty($description))
             <br>
